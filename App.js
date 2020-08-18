@@ -3,10 +3,10 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow strict-local
+ * @flow
  */
 
-import React from 'react';
+import React, {Fragment} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,7 +15,6 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
 import {
   Header,
   LearnMoreLinks,
@@ -23,10 +22,11 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Auth from './Auth';
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
-    <>
+    <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -39,6 +39,14 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Step Zero</Text>
+              <Text style={styles.sectionDescription}>
+                Use <Text style={styles.highlight}>Okta</Text> for
+                authentication.
+              </Text>
+              <Auth />
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -68,7 +76,7 @@ const App: () => React$Node = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </Fragment>
   );
 };
 
